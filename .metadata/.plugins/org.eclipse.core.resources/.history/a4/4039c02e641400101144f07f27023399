@@ -1,0 +1,19 @@
+package in.ashokit.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoRestController {
+	
+	@GetMapping("/welcome")
+	public String m1() {
+		return "Welcome to Ashok IT";
+	}
+	
+	@GetMapping("/home")
+	public String m2() {
+		return "Welcome to home";
+	}
+
+}

@@ -1,0 +1,39 @@
+package in.ashokit;
+
+import java.util.Optional;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import in.ashokit.entity.Students;
+import in.ashokit.repo.StudentRepo;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
+		
+		
+//		Students s = new Students(1, "Rabi", "HYD");
+//		
+//		
+		StudentRepo bean = run.getBean(StudentRepo.class);
+//		Students save = bean.save(s);
+//		System.out.println("Student "+save.getStuName()+" is saved");
+	
+		//-----------------------------------------------
+		
+//		Optional<Students> byId = bean.findById(1);
+//		Students students = byId.get();
+//		System.out.println(students);
+		
+		//----------------------------------------------------
+		
+		
+		
+		
+	}
+
+}

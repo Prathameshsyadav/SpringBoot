@@ -1,0 +1,38 @@
+package in.ashokit.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoRestController {
+	
+	@GetMapping("/welcome")
+	public String m1() {
+		return "Welcome to Ashok IT";
+	}
+	
+	@GetMapping("/home")
+	public String m2() {
+		return "Welcome to home";
+	}
+	
+	@GetMapping("/param")
+	public ResponseEntity<String> m3(@RequestParam("id") Integer id){
+		String msg = "";
+		if(id==1) {
+			msg = "Mobile company :: apple";
+			return new ResponseEntity<String>(msg,HttpStatus.OK);
+		}else if(id==2){
+			msg = "Mobile company :: samsung";
+			return new ResponseEntity<String>(msg,HttpStatus.OK);
+		}else {
+			msg = "No Product found";
+			return new ResponseEntity<String>(msg,HttpStatus.OK);
+		}
+		
+	}
+
+}

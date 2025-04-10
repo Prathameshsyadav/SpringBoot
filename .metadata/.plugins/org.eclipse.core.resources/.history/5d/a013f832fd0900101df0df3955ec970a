@@ -1,0 +1,41 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.example.entity.Zoo;
+import com.example.service.ZooService;
+
+@Controller
+public class ZooController {
+	
+	@Autowired
+	private ZooService zooService;
+	
+	public List<Zoo> getAllZoo() {
+		return zooService.getZoo();
+	}
+	
+	public Boolean addZoo(Zoo zoo) {
+		return zooService.addZoo(zoo);
+	}
+	
+	public Zoo getZooById(Zoo zoo) {
+		return zooService.getByZooId(zoo.getAnimalId());
+	}
+	
+	public Zoo updateZoo(Zoo zoo) {
+		return zooService.updateZoo(zoo);
+	}
+	
+	
+	public void deleteZoo(Zoo zoo) {
+		 zooService.deleteZoo(zoo);
+	}
+	
+	
+	
+
+}

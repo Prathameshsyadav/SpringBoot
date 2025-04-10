@@ -1,0 +1,25 @@
+package in.ashokit.service;
+
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.repo.EmpRepo;
+
+@Service
+public class EmpService {
+	
+	private EmpRepo empRepo;
+
+	public EmpService(EmpRepo empRepo) {
+		this.empRepo = empRepo;
+	}
+	
+	
+	public void sortBySalary() {
+		empRepo.findAll(Sort.by("eSalary")).forEach(System.out::println);
+	}
+	
+	
+	
+
+}

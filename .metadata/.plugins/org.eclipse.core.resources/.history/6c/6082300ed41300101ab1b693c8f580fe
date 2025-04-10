@@ -1,0 +1,36 @@
+package in.ashokit.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.entity.Contact;
+import in.ashokit.entity.User;
+import in.ashokit.repo.ContactRepo;
+import in.ashokit.repo.UserRepo;
+
+@Service
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	private ContactRepo contactRepo;
+
+	@Override
+	public boolean registerUser(User user) {
+		User u = userRepo.save(user);
+		return u.getId()!=null;
+	}
+
+	@Override
+	public boolean loginUser(String name, String password) {
+		User byName = userRepo.findByName(name);
+		return byName!=null;
+	}
+
+	@Override
+	public Contact addContact(Contact contact) {
+		return contactRepo.save(contact);
+	}
+
+}

@@ -1,0 +1,28 @@
+package in.ashokit.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import in.ashokit.service.StuService;
+
+@Controller
+public class StuController {
+
+	private StuService stuService;
+
+	public StuController(StuService stuService) {
+		
+		this.stuService = stuService;
+	}
+	
+	@GetMapping("/")
+	public ModelAndView displayForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
+	}
+	
+	
+	
+}

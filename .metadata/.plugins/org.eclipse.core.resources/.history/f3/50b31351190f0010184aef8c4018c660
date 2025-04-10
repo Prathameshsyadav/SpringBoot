@@ -1,0 +1,31 @@
+package in.ashokit.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+import in.ashokit.service.EmpService;
+
+@Controller
+public class EmpController {
+	
+	private EmpService empService;
+	
+	public EmpController(EmpService empService) {
+		super();
+		this.empService = empService;
+	}
+
+
+
+	public ModelAndView getAllEmployees() {
+		
+		
+		
+		ModelAndView mav = new ModelAndView();
+		
+		
+		
+		return mav;
+	}
+
+}

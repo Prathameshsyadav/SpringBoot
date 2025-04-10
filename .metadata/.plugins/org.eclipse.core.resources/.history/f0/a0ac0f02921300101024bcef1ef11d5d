@@ -1,0 +1,44 @@
+package in.ashokit;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.fasterxml.jackson.core.exc.StreamWriteException;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import in.ashokit.entity.Customer;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) throws StreamWriteException, DatabindException, IOException {
+		SpringApplication.run(Application.class, args);
+		
+//		Customer c = new Customer();
+//		c.setId(1);
+//		c.setName("Prathamesh");
+//		c.setMobNo(8788554294L);
+//		c.setAdd("Ambernath");
+//		
+		//Serialization java to json
+//		ObjectMapper o = new ObjectMapper();
+//		File f = new File("customer.json");
+//		o.writeValue(f, c);
+//		System.out.println("Serialization compleate");
+		
+		//Deserialization json to java
+		
+		ObjectMapper o = new ObjectMapper();
+		File f = new File("customer.json");
+		Customer customer = o.readValue(f, Customer.class);
+		System.out.println("Deserialization complete");
+		System.out.println(customer);
+		o.readValue(null, null)
+		
+	}
+
+}

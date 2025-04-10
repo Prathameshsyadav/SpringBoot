@@ -1,0 +1,41 @@
+package in.ashokit.service;
+
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.entity.Employee;
+import in.ashokit.repo.EmpRepo;
+
+@Service
+public class EmpService {
+	
+	private EmpRepo empRepo;
+
+	public EmpService(EmpRepo empRepo) {
+		this.empRepo = empRepo;
+	}
+	
+	
+	public void sortBySalary() {
+		empRepo.findAll(Sort.by("eSalary")).forEach(System.out::println);
+	}
+	
+	
+	public void sortByNameDesc() {
+		empRepo.findAll(Sort.by("eName").descending()).forEach(System.out::println);
+	}
+	
+	public void addEmp() {
+		empRepo.saveEmployee(6, "Namu", 6000.00,"Dombivali");
+	}
+	
+	public void updateEmpl() {
+		empRepo.updateEmp(6, 6500.00, "Pune");
+		Employee employee = empRepo.findById(6).get();
+		System.out.println(employee);
+	}
+	
+	
+	
+
+}

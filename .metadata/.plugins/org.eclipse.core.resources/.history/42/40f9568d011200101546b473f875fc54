@@ -1,0 +1,3 @@
+spring.application.name=15_Actuator
+
+management.endpoints.web.exposure.include=*

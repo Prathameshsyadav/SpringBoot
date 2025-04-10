@@ -1,0 +1,15 @@
+package in.ashokit.entity;
+
+import jakarta.persistence.ManyToOne;
+
+public class Contact {
+	
+	private Integer id;
+	private String name;
+	private String email;
+	private Long contactNo;
+	@ManyToOne
+	private User user;
+	
+
+}

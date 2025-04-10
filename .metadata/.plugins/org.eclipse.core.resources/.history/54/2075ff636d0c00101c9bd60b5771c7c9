@@ -1,0 +1,16 @@
+package in.ashokit.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import in.ashokit.entity.Employee;
+
+public interface EmpRepo extends CrudRepository<Employee, Integer> {
+	
+	//Select * from employee
+	@Query("FROM employee")
+	public List<Employee> getAllEmployees();
+
+}

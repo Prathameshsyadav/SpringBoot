@@ -1,0 +1,59 @@
+package in.ashokit.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import in.ashokit.entity.Employee;
+import in.ashokit.service.EmpService;
+
+@RestController
+public class EmpController {
+
+	@Autowired
+	private EmpService empService;
+	
+	@PostMapping(value = "/saveEmp", consumes = "application/json")
+	public ResponseEntity<String> saveEmployee(@RequestBody Employee emp){
+		Boolean employee = empService.addEmployee(emp);
+		if(employee) {
+			return new ResponseEntity<String>("Employee saved", HttpStatus.CREATED);
+		}else {
+			return new ResponseEntity<String>("Employee not saved", HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
+	@GetMapping(value = "/getAllEmp", produces = "application/json")
+	public ResponseEntity<List<Employee>> getAllEmp(){
+		List<Employee> allEmployee = empService.getAllEmployee();		
+		return new ResponseEntity<List<Employee>>(allEmployee, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/getEmp", consumes = "text/plain", produces = "application/json")
+	public ResponseEntity<Employee> getEmpById(@RequestParam("id") Integer id){
+		Employee empById = empService.getEmpById(id);
+		return new ResponseEntity<Employee>(empById, HttpStatus.OK);
+	}
+	
+	@PutMapping(value = "/updateEmp", consumes = "application/json", produces = "application/json")
+	public ResponseEntity<Employee> updateEmp(Employee emp){
+		Employee updateEmployee = empService.updateEmployee(emp);
+		return new ResponseEntity<Employee>(updateEmployee, HttpStatus.ACCEPTED);
+	}
+	
+	@DeleteMapping(value = "/deleteEmp", consumes = "text/plain")
+	public ResponseEntity<String> deleteEmp(@RequestParam("id") Integer id){
+		empService.deleteEmployeeById(id);
+		return new ResponseEntity<String>("Employee Deleted", HttpStatus.ACCEPTED);
+	}
+}

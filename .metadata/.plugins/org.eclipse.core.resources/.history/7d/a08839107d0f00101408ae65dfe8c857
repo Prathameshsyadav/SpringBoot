@@ -1,0 +1,21 @@
+package in.ashokit.service;
+
+import java.util.List;
+
+import in.ashokit.entity.Student;
+
+public class StuServiceImpl implements StuService {
+
+	@Override
+	public Boolean addStudent(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Student> getAllStudent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

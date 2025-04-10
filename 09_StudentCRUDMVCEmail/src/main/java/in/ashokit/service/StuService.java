@@ -1,0 +1,19 @@
+package in.ashokit.service;
+
+import java.util.List;
+
+import in.ashokit.entity.Student;
+
+public interface StuService {
+	
+	public Boolean addStudent(Student student);
+	
+	public List<Student> getAllStudent();
+	
+	public void deleteStudent(Integer sid);
+	
+	public void sendSimpleMail(Student student);
+	
+	public void sendMimeMail(Student student);
+
+}

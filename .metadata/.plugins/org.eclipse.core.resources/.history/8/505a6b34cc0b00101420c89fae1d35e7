@@ -1,0 +1,17 @@
+package com.ashokit.service;
+
+import com.ashokit.repo.EmpRepo;
+
+public class EmpService {
+	
+	private EmpRepo empRepo;
+	
+	public EmpService(EmpRepo empRepo) {
+		// TODO Auto-generated constructor stub
+		this.empRepo = empRepo;
+	}
+	
+	
+	
+
+}

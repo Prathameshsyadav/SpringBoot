@@ -1,0 +1,17 @@
+package in.ashokit.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import in.ashokit.entity.Employee;
+import jakarta.transaction.Transactional;
+
+public interface EmpRepo extends JpaRepository<Employee, Integer> {
+	
+	@Modifying
+	@Transactional
+	@Query("Insert into employee(eId,eName, eSalary,eAddress) values (:id,:name,:salary,:address)")
+	public void saveEmployee(Integer id, String name, Double salary, String address);
+
+}

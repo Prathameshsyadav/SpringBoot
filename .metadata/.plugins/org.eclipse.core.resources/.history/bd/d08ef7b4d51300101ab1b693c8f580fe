@@ -1,0 +1,95 @@
+package in.ashokit.controller;
+
+import java.net.http.HttpRequest;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import in.ashokit.entity.Contact;
+import in.ashokit.entity.User;
+import in.ashokit.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@GetMapping("/")
+	public String registerPage() {
+		return "registerPage";
+	}
+	
+	@PostMapping("/register")
+	public String handleRegister(Model m, User user) {
+		boolean registerUser = userService.registerUser(user);
+		if(registerUser) {
+			m.addAttribute("msg", "Registeration successfull");
+			return "loginPage";
+		}else {
+			m.addAttribute("msg", "Registeration not successfull");
+			return "registerPage";
+		}
+		
+	}
+	
+	@GetMapping("/login")
+	public String loginPage(Model m) {
+		m.addAttribute("login", new User() );
+		return "loginPage";
+	}
+	
+	@PostMapping("/login")
+	public String handleLogin(User u, Model m, HttpServletRequest request) {
+		boolean loginUser = userService.loginUser(u.getEmail(), u.getPassword());
+		if(loginUser) {
+			request.getSession(true);
+			m.addAttribute("msg", "Add Contact");
+			return "contactPage";
+		}else {
+			m.addAttribute("msg", "Login Failed");
+			return "loginPage";
+		}
+		
+	}
+	
+	@GetMapping("/contact")
+	public String contactPage(Model m, HttpServletRequest request) {
+		request.getSession(false);
+		m.addAttribute("contact",new Contact());
+			return "contactPage";
+	}
+	
+	@PostMapping("/contact")
+	public String handleContact(Contact contact, Model m, HttpServletRequest request) {
+		request.getSession(false);
+		Contact contact2 = userService.addContact(contact);
+		m.addAttribute("msg", "Contact added");
+		return "contactPage";
+	}
+	
+	@GetMapping("/dashboard")
+	public String dashboard(Model m,HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		List<Contact> contact = userService.getContact();
+		m.addAttribute("contacts", contact);
+		session.invalidate();
+		return "dashboard";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "loginPage";
+	}
+	
+	
+
+}

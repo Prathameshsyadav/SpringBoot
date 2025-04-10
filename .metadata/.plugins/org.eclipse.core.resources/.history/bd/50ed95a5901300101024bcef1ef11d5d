@@ -1,0 +1,12 @@
+package in.ashokit.entity;
+
+public class Customer {
+	
+	private Integer id;
+	private String name;
+	private String add;
+	private Long MobNo;
+	
+	
+
+}

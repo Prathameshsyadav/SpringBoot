@@ -1,0 +1,11 @@
+package in.ashokit.entity;
+
+public class Students {
+	
+	private Integer stuId;
+	private String stuName;
+	private String stuAdd;
+	
+	
+
+}

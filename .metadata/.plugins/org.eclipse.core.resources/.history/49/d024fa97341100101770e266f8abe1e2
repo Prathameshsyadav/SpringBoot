@@ -1,0 +1,71 @@
+package in.ashokit.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import in.ashokit.entity.User;
+import in.ashokit.service.UserService;
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@GetMapping("/")
+	public String registerPage(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		//user.setName("Prathamesh");
+		return "registerPage";
+	}
+	
+	
+	@PostMapping("/register")
+	public String handleRegister(Model m, User user) {
+		boolean registerUser = userService.registerUser(user);
+		if(registerUser) {
+			m.addAttribute("msg", "Registeration successfull");
+			return "loginPage";
+		}else {
+			m.addAttribute("msg", "Registeration not successfull");
+			return "registerPage";
+		}
+		
+	}
+	
+	@GetMapping("/login")
+	public String loginPage(Model m) {
+		User u = new User();
+		m.addAttribute("user", u);
+		return "loginPage";
+	}
+	
+	@PostMapping("/login")
+	public String handleLogin(User user, Model m, HttpSession session) {
+		boolean loginUser = userService.loginUser(user.getEmail(), user.getPassword());
+		if(loginUser) {
+			session.setAttribute("loginUser", loginUser);
+			m.addAttribute("msg", "Hello "+user.getName()+" welcome to ashok it");
+			return "dashboard";
+		}else {
+			m.addAttribute("msg", "Login Failed");
+			return "loginPage";
+		}
+		
+	}
+	
+	@GetMapping("/logout")
+	public String logout(Model m,HttpSession session) {
+		session.invalidate();
+		User u = new User();
+		m.addAttribute("user", u);
+		return "loginPage";
+	}
+
+}

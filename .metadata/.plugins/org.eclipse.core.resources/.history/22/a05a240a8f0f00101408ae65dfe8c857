@@ -1,0 +1,58 @@
+package in.ashokit.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import in.ashokit.entity.Student;
+import in.ashokit.service.StuService;
+
+@Controller
+public class StuController {
+
+	private StuService stuService;
+
+	public StuController(StuService stuService) {
+
+		this.stuService = stuService;
+	}
+
+	@GetMapping("/")
+	public ModelAndView displayForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
+	}
+
+	@PostMapping("/addStudent")
+	public String handleForm(Model model, Student student) {
+		Boolean result = stuService.addStudent(student);
+		if (result) {
+			model.addAttribute("msg", "Student saved");
+			return "index";
+		} else {
+			model.addAttribute("msg", "Student not saved");
+			return "index";
+		}
+	}
+	
+	@GetMapping("/showStudents")
+	public String displayAllStudents(Model model) {
+		List<Student> allStudent = stuService.getAllStudent();
+		model.addAttribute("allStudents", allStudent);
+		return "data";
+	}
+	
+	@DeleteMapping("/delete")
+	public String deleteStudent(@RequestParam("sid") Model model) {
+		stuService.deleteStudent(null);
+		return "data";
+	}
+
+}

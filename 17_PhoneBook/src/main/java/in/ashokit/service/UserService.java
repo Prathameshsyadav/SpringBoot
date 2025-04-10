@@ -1,0 +1,20 @@
+package in.ashokit.service;
+
+import java.util.List;
+
+import in.ashokit.entity.Contact;
+import in.ashokit.entity.User;
+
+public interface UserService {
+	
+	public boolean registerUser(User user);
+	
+	public User loginUser(String name, String password);
+	
+	public Contact addContact(Contact contact);
+	
+	public List<Contact> getContact(User u);
+	
+	public User getUserById(Integer id);
+
+}

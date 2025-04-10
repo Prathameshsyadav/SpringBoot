@@ -1,0 +1,41 @@
+package in.ashokit.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import in.ashokit.entity.Student;
+import in.ashokit.service.StuService;
+
+@Controller
+public class StuController {
+
+	private StuService stuService;
+
+	public StuController(StuService stuService) {
+
+		this.stuService = stuService;
+	}
+
+	@GetMapping("/")
+	public ModelAndView displayForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
+	}
+
+	@PostMapping("/addStudent")
+	public String handleForm(Model model, Student student) {
+		Boolean result = stuService.addStudent(student);
+		if (result) {
+			model.addAttribute("smsg", "Student saved");
+			return "index";
+		} else {
+			model.addAttribute("emsg", "Student not saved");
+			return "index";
+		}
+	}
+
+}

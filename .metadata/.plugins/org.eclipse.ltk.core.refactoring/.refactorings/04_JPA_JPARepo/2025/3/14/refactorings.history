@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 packages to &apos;05_JPA_JpaRepoQueryExample/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;04_JPA_JPARepo&apos;&#x0D;&#x0A;- Destination element: &apos;05_JPA_JpaRepoQueryExample/src/main/java&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     04_JPA_JPARepo/src/main/java/in.ashokit.entity&#x0D;&#x0A;     04_JPA_JPARepo/src/main/java/in.ashokit.repo" description="Copy packages" destination="=05_JPA_JpaRepoQueryExample/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.ashokit.entity" element2="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.ashokit.repo" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1743392807763" version="1.0"/>
+</session>

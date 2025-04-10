@@ -1,0 +1,8 @@
+<html>
+	<head>
+		<title>Emp list</title>
+	</head>
+	<body>
+		<h1 th:each="name : ${msg}" th:text="$name" ></h1>
+	</body>
+</html>

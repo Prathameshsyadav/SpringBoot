@@ -1,0 +1,39 @@
+package in.ashokit.service;
+
+import java.util.List;
+
+import in.ashokit.entity.Employee;
+
+public class EmpServiceImpl implements EmpService {
+
+	@Override
+	public Boolean addEmployee(Employee emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Employee> getAllEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee getEmpById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee updateEmployee(Employee emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteEmployeeById(Integer id) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

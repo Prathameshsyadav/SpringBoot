@@ -1,0 +1,30 @@
+package in.ashokit.exceptions;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class AppExceptionHandler {
+	
+	@ExceptionHandler(value = NullPointerException.class)
+	public String handleNPE(NullPointerException r, Model m) {
+		m.addAttribute("msg", "Runtime Exception occors");
+		return "error";
+	}
+	
+	@ExceptionHandler(value = ArithmeticException.class)
+	public String handleAE(ArithmeticException r, Model m) {
+		m.addAttribute("msg", "Arithmatic Exception occors");
+		return "error";
+	}
+	
+	@ExceptionHandler(value = ProductNotFoundException.class)
+	public String handlePNFE(ProductNotFoundException p, Model m) {
+		m.addAttribute("msg", "Product Not Found Exception occors");
+		return "error";
+	}
+	
+	
+
+}

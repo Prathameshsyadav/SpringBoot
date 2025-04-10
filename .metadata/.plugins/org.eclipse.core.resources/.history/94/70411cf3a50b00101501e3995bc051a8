@@ -1,0 +1,51 @@
+package in.ashokit;
+
+
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import in.ashokit.entity.Students;
+import in.ashokit.repo.StudentRepo;
+
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
+		
+		StudentRepo stuRepo = run.getBean(StudentRepo.class);
+		
+		
+		Students s = new Students();
+		s.setStuId(1);
+		s.setStuName("Peter");
+		s.setStuAdd("Colombia");
+		
+		//stuRepo.save(s);
+		
+		
+		Students s1 = new Students();
+		s1.setStuId(2);
+		s1.setStuName("Robin");
+		s1.setStuAdd("Mumbai");
+		
+		Students s2 = new Students();
+		s2.setStuId(3);
+		s2.setStuName("Prathamesh");
+		s2.setStuAdd("Ambernath");
+		
+		List<Students> asList = Arrays.asList(s1,s2);
+		
+		stuRepo.saveAll(asList);
+		
+		
+		
+	}
+
+}

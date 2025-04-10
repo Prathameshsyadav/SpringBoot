@@ -1,0 +1,23 @@
+<h1>All students</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Address</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="s : ${allStudents}">
+			<td th:text="${s.sid}"></td>
+			<td th:text="${s.name}"></td>
+			<td th:text="${s.email}"></td>
+			<td th:text="${s.address}"></td>
+		</tr>
+	</tbody>
+</table>
+
+<a href="/">Add Students</a>

@@ -1,0 +1,5 @@
+spring.application.name=11_EmbeddedDatabase
+
+spring.datasource.url=jdbc:h2:mem:devdb
+spring.datasource.username=root
+spring.datasource.password=root

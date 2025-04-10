@@ -1,0 +1,21 @@
+package in.ashokit.service;
+
+import org.springframework.stereotype.Service;
+
+import in.ashokit.repo.EmpRepo;
+
+@Service
+public class EmpService {
+	
+	private EmpRepo empRepo;
+	
+	private void EmpRepo(EmpRepo empRepo) {
+		
+				this.empRepo = empRepo;
+	}
+	
+	
+	
+	
+
+}

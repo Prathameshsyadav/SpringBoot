@@ -1,0 +1,34 @@
+package in.ashokit;
+
+
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import in.ashokit.entity.Students;
+import in.ashokit.repo.StudentRepo;
+
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
+		
+		StudentRepo stuRepo = run.getBean(StudentRepo.class);
+		
+		
+		Students s = new Students();
+		s.setStuId(1);
+		s.setStuName("Peter");
+		s.setStuAdd("Colombia");
+		
+		stuRepo.save(s);
+		
+		
+		
+		
+	}
+
+}

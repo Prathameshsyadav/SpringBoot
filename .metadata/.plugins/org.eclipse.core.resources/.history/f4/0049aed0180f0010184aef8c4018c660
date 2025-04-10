@@ -1,0 +1,15 @@
+package in.ashokit.service;
+
+import java.util.List;
+
+import in.ashokit.entity.Employee;
+
+public class EmpServiceImpl implements EmpService {
+
+	@Override
+	public List<Employee> getEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

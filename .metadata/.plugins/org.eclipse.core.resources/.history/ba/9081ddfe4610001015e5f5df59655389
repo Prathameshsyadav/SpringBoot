@@ -1,0 +1,13 @@
+package in.ashokit.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+@Controller
+public class MyController {
+
+	public String m1(Model m) {
+		m.addAttribute("msg", "Welcome to ashok it");
+		return "home";
+	}
+}
