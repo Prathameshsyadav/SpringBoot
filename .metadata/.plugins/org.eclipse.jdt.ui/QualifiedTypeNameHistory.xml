@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="in.ashokit.service.StuService"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-    <fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSender"/>
     <fullyQualifiedTypeName name="org.springframework.mail.SimpleMailMessage"/>
     <fullyQualifiedTypeName name="in.ashokit.entity.Student"/>
     <fullyQualifiedTypeName name="jakarta.mail.internet.MimeMessage"/>
@@ -48,11 +45,9 @@
     <fullyQualifiedTypeName name="in.ashokit.repo.EmpRepo"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="in.ashokit.service.EmpService"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="in.ashokit.entity.Employee"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="in.ashokit.services.DemoServices"/>
+    <fullyQualifiedTypeName name="in.ashokit.entity.Employee"/>
 </qualifiedTypeNameHistroy>
