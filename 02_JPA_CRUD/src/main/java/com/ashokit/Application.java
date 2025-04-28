@@ -21,7 +21,9 @@ public class Application {
 		
 		//empService.getEmpSalaryGreaterThan();
 		
-		empService.getEmpByNameAndAddress();
+		//empService.getEmpByNameAndAddress();
+		
+		empService.getEmpBySalaryEquals();
 		
 	}
 	

@@ -25,9 +25,9 @@ public class EmpService {
 		empRepo.findAll(Sort.by("eName").descending()).forEach(System.out::println);
 	}
 	
-	public void addEmp() {
-		empRepo.saveEmployee(6, "Namu", 6000.00,"Dombivali");
-	}
+//	public void addEmp() {
+//		empRepo.saveEmployee(6, "Namu", 6000.00,"Dombivali");
+//	}
 	
 	public void updateEmpl() {
 		empRepo.updateEmp(6, 6500.00, "Pune");

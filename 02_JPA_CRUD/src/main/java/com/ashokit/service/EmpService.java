@@ -52,6 +52,11 @@ public class EmpService {
 		System.out.println(byENameAndEAddress);
 	}
 	
+	public void getEmpBySalaryEquals() {
+		List<Employee> byESalaryEquals = empRepo.findByESalaryEquals(5000.00);
+		byESalaryEquals.forEach(System.out::println);
+	}
+	
 	
 
 }

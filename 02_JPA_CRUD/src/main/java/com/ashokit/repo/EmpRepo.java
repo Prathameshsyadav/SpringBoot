@@ -14,5 +14,7 @@ public interface EmpRepo extends CrudRepository<Employee, Integer> {
 	
 	public Employee findByENameAndEAddress(String name, String address);
 	
+	public List<Employee> findByESalaryEquals(Double Salary);
+	
 
 }

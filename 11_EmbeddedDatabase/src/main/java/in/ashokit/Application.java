@@ -23,6 +23,10 @@ public class Application {
 		emp1.setName("Prathamesh");
 		bean.saveEmp(emp1);
 		
+		Employee emp2 = new Employee();
+		emp2.setName("Akash");
+		bean.saveEmp(emp2);
+		
 	}
 
 }

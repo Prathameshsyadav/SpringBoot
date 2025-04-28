@@ -15,11 +15,11 @@ public class Application {
 		
 		EmpService bean = run.getBean(EmpService.class);
 		
-		//bean.getAllEmpPage(2);
+		//bean.getAllEmpPage(1);
 		
 		Employee emp = new Employee();
-		//emp.seteName("Prathamesh");
-		emp.seteAddress("Pune");
+		emp.seteName("Prathamesh");
+		//emp.seteAddress("Pune");
 		
 		bean.getEmpByExample(emp);
 	}
