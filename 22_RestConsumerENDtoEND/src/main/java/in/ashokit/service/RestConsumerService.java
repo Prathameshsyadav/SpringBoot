@@ -50,8 +50,6 @@ public class RestConsumerService {
 	public String callUpdateEmployee(Employee emp) {
 		
 		RestTemplate rt = new RestTemplate();
-		
-		rt.put(updateEmp, emp);
 
 	    return "Employee updated successfully";
 	}
